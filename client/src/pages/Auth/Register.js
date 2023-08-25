@@ -18,7 +18,7 @@ const Register = () => {
     e.preventDefault();
     try {
     //   const res = await axios.post(`${process.env.REACT_APP_API}/api/v1/auth/register`, {
-        const res = await axios.post("/api/v1/auth/register", {
+        const res = await axios.post("https://ecommerceapp-psi.vercel.app/api/v1/auth/register", {
         name,
         email,
         password,

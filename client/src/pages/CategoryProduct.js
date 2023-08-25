@@ -3,11 +3,14 @@ import Layout from "../components/Layout/Layout";
 import { useParams, useNavigate } from "react-router-dom";
 import "../styles/CategoryProductStyles.css";
 import axios from "axios";
+import { useCart } from "../context/cart";
+import { toast } from "react-hot-toast";
 const CategoryProduct = () => {
   const params = useParams();
   const navigate = useNavigate();
   const [products, setProducts] = useState([]);
   const [category, setCategory] = useState([]);
+  const [cart, setCart] = useCart();
 
   useEffect(() => {
     if (params?.slug) getPrductsByCat();
@@ -15,7 +18,7 @@ const CategoryProduct = () => {
   const getPrductsByCat = async () => {
     try {
       const { data } = await axios.get(
-        `/api/v1/product/product-category/${params.slug}`
+        `https://ecommerceapp-psi.vercel.app/api/v1/product/product-category/${params.slug}`
       );
       setProducts(data?.products);
       setCategory(data?.category);
@@ -35,7 +38,7 @@ const CategoryProduct = () => {
               {products?.map((p) => (
                 <div className="card m-2" key={p._id}>
                   <img
-                    src={`/api/v1/product/product-photo/${p._id}`}
+                    src={`https://ecommerceapp-psi.vercel.app/api/v1/product/product-photo/${p._id}`}
                     className="card-img-top"
                     alt={p.name}
                   />
@@ -59,7 +62,7 @@ const CategoryProduct = () => {
                       >
                         More Details
                       </button>
-                      {/* <button
+                      <button
                     className="btn btn-dark ms-1"
                     onClick={() => {
                       setCart([...cart, p]);
@@ -71,7 +74,7 @@ const CategoryProduct = () => {
                     }}
                   >
                     ADD TO CART
-                  </button> */}
+                  </button>
                     </div>
                   </div>
                 </div>
