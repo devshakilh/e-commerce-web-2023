@@ -2,12 +2,12 @@
 
 # E-commerce-web-app
 
-<!-- admin gmail and password -->
+##<!-- admin gmail and password -->
 
 ## admin@gmail.com
 
 ## 123456
 
-<!-- live link  -->
+##<!-- live link  -->
 
 ## https://e-commerce-web-app-pi.vercel.app/
