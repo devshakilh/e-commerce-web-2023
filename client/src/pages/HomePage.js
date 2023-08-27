@@ -8,6 +8,7 @@ import toast from "react-hot-toast";
 import Layout from "./../components/Layout/Layout";
 import { AiOutlineReload } from "react-icons/ai";
 import "../styles/Homepage.css";
+import CarouselComp from "./Carousel";
 
 const HomePage = () => {
   const navigate = useNavigate();
@@ -109,14 +110,15 @@ const HomePage = () => {
   return (
     <Layout title={"ALl Products - Best offers "}>
       {/* banner image */}
-      <img
+    <CarouselComp/>
+      {/* <img
         src="/images/banner.png"
         className="banner-img"
         alt="bannerimage"
         width={"100%"}
-      />
+      /> */}
       {/* banner image */}
-      <div className="container-fluid row mt-3 home-page">
+      <div className="container-fluid row mt-3 home-page ">
         <div className="col-md-3 filters">
           <h4 className="text-center">Filter By Category</h4>
           <div className="d-flex flex-column">
@@ -174,7 +176,7 @@ const HomePage = () => {
                   </p>
                   <div className="card-name-price">
                     <button
-                      className="btn btn-info ms-1"
+                      className="btn bg ms-1"
                       onClick={() => navigate(`/product/${p.slug}`)}
                     >
                       More Details
