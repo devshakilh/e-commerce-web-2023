@@ -79,4 +79,7 @@
     font-weight: bold;
     font-size: 20px !important;
   }
-  
+  .height__video{
+height: 400px;
+width: 400px;
+  }

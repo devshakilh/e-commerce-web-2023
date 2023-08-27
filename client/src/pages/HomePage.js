@@ -1,7 +1,9 @@
 import React, { useState, useEffect } from "react";
-import { useNavigate } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import { Checkbox, Radio } from "antd";
 import { Prices } from "../components/Prices";
+import { Container, Row, Col } from 'reactstrap'
+import { motion } from 'framer-motion';
 import { useCart } from "../context/cart";
 import axios from "axios";
 import toast from "react-hot-toast";
@@ -9,6 +11,9 @@ import Layout from "./../components/Layout/Layout";
 import { AiOutlineReload } from "react-icons/ai";
 import "../styles/Homepage.css";
 import CarouselComp from "./Carousel";
+import Clock from "./Clock";
+import counterImg from '../assets/counter-timer-img.png'
+
 
 const HomePage = () => {
   const navigate = useNavigate();
@@ -219,8 +224,38 @@ const HomePage = () => {
               </button>
             )}
           </div>
+
+
+         
+         
         </div>
       </div>
+      <section className="timer__count">
+            <Container>
+                <Row>
+                    <Col lg='6' md='12' className='count__down-col'>
+                        <div className="clock__top-content">
+                            <h4 className='text-white fs-6 mb-2'>Limited offers</h4>
+                            <h3 className='text-white fs-5 mb-3'>Quality Armchair</h3>
+                        </div>
+                        <Clock />
+                        <motion.button
+                            whileTap={{ scale: 1.2 }}
+                            className="buy__btn store__btn"><Link to='/shop'>Visit Store</Link></motion.button>
+                    </Col>
+                    <Col lg='6' md='12' className='text-end counter__img'>
+                        <img src={counterImg} alt="" />
+                    </Col>
+                </Row>
+
+            </Container>
+        </section>
+
+        <div>
+        <div class="ratio ratio-16x9">
+  <iframe className="height_video" src="https://www.youtube.com/embed/zpOULjyy-n8?rel=0" title="YouTube video" allowfullscreen></iframe>
+</div>
+        </div>
     </Layout>
   );
 };
